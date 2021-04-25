@@ -1,8 +1,13 @@
 <template>
     <section class="post-list">
-        <PostPreview :is-admin="isAdmin" id="1" title="Post 1"  previewText="Post 1 Preview Text" thumbnail="https://mlmuuous6dwe.i.optimole.com/DfwWcdQ-JK5kWYU6/w:362/h:181/q:auto/https://technation.io/wp-content/uploads/2017/11/91F5041A-B5D4-4648-AA55-C39A0DBBAAC3.jpeg" />
-        <PostPreview :is-admin="isAdmin" id="2" title="Post 2"  previewText="Post 2 Preview Text" thumbnail="https://mlmuuous6dwe.i.optimole.com/DfwWcdQ-JK5kWYU6/w:362/h:181/q:auto/https://technation.io/wp-content/uploads/2017/11/91F5041A-B5D4-4648-AA55-C39A0DBBAAC3.jpeg" />
-        <PostPreview :is-admin="isAdmin" id="3" title="Post 3"  previewText="Post 3 Preview Text" thumbnail="https://mlmuuous6dwe.i.optimole.com/DfwWcdQ-JK5kWYU6/w:362/h:181/q:auto/https://technation.io/wp-content/uploads/2017/11/91F5041A-B5D4-4648-AA55-C39A0DBBAAC3.jpeg" />
+        <PostPreview 
+          v-for="post in posts"
+          :key="post.id"
+          :is-admin="isAdmin" 
+          :id="post.id" 
+          :title="post.title"  
+          :previewText="post.previewText" 
+          :thumbnail="post.thumbnail" />
     </section>
 </template>
 
@@ -17,6 +22,10 @@ export default {
     isAdmin: {
       type: Boolean,
       default: false 
+    },
+    posts: {
+      type: Array,
+      required: true
     }
   }
 }
