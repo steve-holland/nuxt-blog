@@ -18,7 +18,7 @@
 import axios from 'axios'
 
 export default {
-  asyncData(context, callback){
+  asyncData(context){
     return axios.get('https://nuxt-blog-1f759-default-rtdb.europe-west1.firebasedatabase.app/posts/' + context.params.id + '.json')
       .then(res => { 
         return {
